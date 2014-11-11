@@ -1,9 +1,15 @@
+package Formularios;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-package Formularios;
+ 
+import java.sql.Connection;
+import java.sql.Statement;
+import java.*;
+import java.sql.ResultSet;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -30,14 +36,13 @@ public class JDFacultades extends javax.swing.JDialog {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        t_id = new javax.swing.JTextField();
+        t_nom = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -53,14 +58,27 @@ public class JDFacultades extends javax.swing.JDialog {
         });
 
         jButton2.setText("Editar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Buscar");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Eliminar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("FACULTADES");
-
-        jLabel4.setText("jLabel4");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,8 +99,8 @@ public class JDFacultades extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(t_id, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(t_nom, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(4, 4, 4)
                                 .addComponent(jButton2)
@@ -94,10 +112,6 @@ public class JDFacultades extends javax.swing.JDialog {
                         .addGap(179, 179, 179)
                         .addComponent(jLabel3)))
                 .addContainerGap(39, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel4)
-                .addGap(62, 62, 62))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,14 +121,12 @@ public class JDFacultades extends javax.swing.JDialog {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(t_id, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                    .addComponent(t_nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -127,8 +139,99 @@ public class JDFacultades extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     conexion basedatos = new conexion();
+     Connection conn;
+     basedatos.conectar();
+     try
+     {
+         conn = basedatos.getConexion();
+         Statement comando = conn.createStatement();
+         comando.executeUpdate("insert into facultades() values(null,'"+t_nom.getText()+"')");
+         JOptionPane.showMessageDialog(this, "Registro AGREGADO correctamente");
+         conn.close();
+     }
+     catch(Exception e)
+     {
+         JOptionPane.showMessageDialog(this, "Erro 100: "+ e);
+
+     }
+
+        
+        
+ 
+
+                                           
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+conexion basedatos = new conexion();
+     Connection conn;
+     basedatos.conectar();
+     try
+     {
+         conn = basedatos.getConexion();
+         Statement comando = conn.createStatement();
+         comando.executeUpdate("Update facultades set Facultades='"+t_nom.getText()+"' where id_fac ='"+t_id.getText()+"'");
+         JOptionPane.showMessageDialog(this, "Registro ACTUALIZADO correctamente");
+         conn.close();
+     }
+     catch(Exception e)
+     {
+         JOptionPane.showMessageDialog(this, "Erro 400: "+ e);
+     }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+conexion basedatos = new conexion();
+        basedatos.conectar();
+        Connection con;
+        con = basedatos.getConexion();
+        ResultSet consulta;
+       
+        try
+        {
+         Statement comando  = con.createStatement();      
+        consulta = comando.executeQuery("select id_fac,nom_fac from facultades where  id_fac = '"+t_id.getText()+"'");
+         if(consulta.next())
+	{
+	t_nom.setText(consulta.getString("nom_fac"));
+	//t_nom.setText(consulta.getString("nom_cli"));
+       
+        
+	}
+         else
+             JOptionPane.showMessageDialog(this, "REGISTRO no existente");
+      con.close();
+        }
+        catch(Exception e)
+        {
+            JOptionPane.showMessageDialog(this, "ERROR 300"+e);
+        }    
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+conexion basedatos = new conexion();
+     Connection conn;
+     basedatos.conectar();
+     try
+     {
+         conn = basedatos.getConexion();
+         Statement comando = conn.createStatement();
+         comando.executeUpdate("delete from facultades where id_fac ='"+t_id.getText()+"'");
+         JOptionPane.showMessageDialog(this, "Registro ELIMINADO correctamente");
+         t_nom.setText("");
+    
+         conn.close();
+     }
+     catch(Exception e)
+     {
+         JOptionPane.showMessageDialog(this, "Erro 400: "+ e);
+     }        // TODO add your handling code here:Conexion basedatos = new Conexion();
+     
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -180,8 +283,7 @@ public class JDFacultades extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField t_id;
+    private javax.swing.JTextField t_nom;
     // End of variables declaration//GEN-END:variables
 }
