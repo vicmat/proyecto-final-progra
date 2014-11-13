@@ -4,8 +4,8 @@
  */
 package Formularios;
 
-import Formularios.conexion;
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
@@ -15,13 +15,51 @@ import javax.swing.JOptionPane;
  * @author prix
  */
 public class JDadmon_carreras extends javax.swing.JDialog {
-
+        initComponents();
+        this.jComboBoxIdfacultad.removeAllItems();
+        try
+            {
+             Connection con= DriverManager.getConnection("jdbc:mysql://localhost/julio\",\"root\",\"");
+             Statement Sent=conn.createStatement();
+             ResultSet rs= Sent.executeQuery("selec' from facultades");
+              while(rs.next()){
+               this.jComboBoxIdfacultad.addItem(rs.getString("id_facltad"));
+              }
+             
+            }
+        catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, e);
+                
+              
+            }
     /**
      * Creates new form JDadmon_carreras
      */
     public JDadmon_carreras(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+         conexion basedatos = new conexion();
+         Connection conn;
+         basedatos.conectar();
+        this.jComboBoxIdfacultad.removeAllItems();
+        try
+            {
+             conn = basedatos.getConexion();
+            //Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/julio","root","");
+             Statement Sent=conn.createStatement();
+             ResultSet rs= Sent.executeQuery("selec' from facultades");
+              while(rs.next()){
+               this.jComboBoxIdfacultad.addItem(rs.getString("id_facltad"));
+              }
+             
+            }
+        catch (Exception e)
+            {
+                JOptionPane.showMessageDialog(null, e);
+                
+              
+            }
     }
 
     /**
@@ -39,7 +77,7 @@ public class JDadmon_carreras extends javax.swing.JDialog {
         jLabel4 = new javax.swing.JLabel();
         t_id = new javax.swing.JTextField();
         t_car = new javax.swing.JTextField();
-        cmd_fac = new javax.swing.JComboBox();
+        jComboBoxIdfacultad = new javax.swing.JComboBox();
         cmdagregar = new javax.swing.JButton();
         cmdbuscar = new javax.swing.JButton();
         cmdeliminar = new javax.swing.JButton();
@@ -65,9 +103,9 @@ public class JDadmon_carreras extends javax.swing.JDialog {
             }
         });
 
-        cmd_fac.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxIdfacultad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmd_facActionPerformed(evt);
+                jComboBoxIdfacultadActionPerformed(evt);
             }
         });
 
@@ -123,7 +161,7 @@ public class JDadmon_carreras extends javax.swing.JDialog {
                                     .addComponent(t_car)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(cmd_fac, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxIdfacultad, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(t_id, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -157,7 +195,7 @@ public class JDadmon_carreras extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(cmd_fac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxIdfacultad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cmdagregar)
@@ -172,9 +210,9 @@ public class JDadmon_carreras extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmd_facActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmd_facActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmd_facActionPerformed
+    private void jComboBoxIdfacultadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxIdfacultadActionPerformed
+        
+    }//GEN-LAST:event_jComboBoxIdfacultadActionPerformed
 
     private void cmdagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdagregarActionPerformed
        conexion basedatos = new conexion();
@@ -184,7 +222,7 @@ public class JDadmon_carreras extends javax.swing.JDialog {
      {
          conn = basedatos.getConexion();
          Statement comando = conn.createStatement();
-         comando.executeUpdate("insert into carreras() values(null,'"+t_car.getText()+"')");
+         comando.executeUpdate("insert into carreras() values(null,'"+t_car.getText()+"','"+jComboBoxIdfacultad.getToolTipText()+"')");
          JOptionPane.showMessageDialog(this, "Registro AGREGADO correctamente");
          conn.close();
      }
@@ -292,11 +330,11 @@ conexion basedatos = new conexion();
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox cmd_fac;
     private javax.swing.JButton cmdagregar;
     private javax.swing.JButton cmdbuscar;
     private javax.swing.JButton cmdeditar;
     private javax.swing.JButton cmdeliminar;
+    private javax.swing.JComboBox jComboBoxIdfacultad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

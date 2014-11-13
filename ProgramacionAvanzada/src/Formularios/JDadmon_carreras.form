@@ -41,7 +41,7 @@
                                   <Component id="t_car" max="32767" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="cmd_fac" min="-2" pref="105" max="-2" attributes="0"/>
+                                          <Component id="jComboBoxIdfacultad" min="-2" pref="105" max="-2" attributes="0"/>
                                           <Component id="t_id" min="-2" pref="105" max="-2" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -90,7 +90,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cmd_fac" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxIdfacultad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -147,14 +147,14 @@
     </Component>
     <Component class="javax.swing.JTextField" name="t_car">
     </Component>
-    <Component class="javax.swing.JComboBox" name="cmd_fac">
+    <Component class="javax.swing.JComboBox" name="jComboBoxIdfacultad">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmd_facActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxIdfacultadActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="cmdagregar">
