@@ -13,13 +13,13 @@ import javax.swing.JOptionPane;
  *
  * @author alumno
  */
-public class Entradas extends javax.swing.JFrame {
+public class JDEntradas extends javax.swing.JFrame {
     private Object txtFecha;
 
     /**
      * Creates new form Entradas
      */
-    public Entradas() {
+    public JDEntradas() {
         initComponents();
         Calendar cal=Calendar.getInstance();
         String fecha=cal.get(Calendar.DATE)+"/"+cal.get(Calendar.MONTH)+"/"+cal.get(Calendar.YEAR);
@@ -212,14 +212,15 @@ public class Entradas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Entradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Entradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Entradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Entradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDEntradas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /*
@@ -229,7 +230,7 @@ public class Entradas extends javax.swing.JFrame {
 
             @Override
             public void run() {
-                new Entradas().setVisible(true);
+                new JDEntradas().setVisible(true);
             }
         });
     }

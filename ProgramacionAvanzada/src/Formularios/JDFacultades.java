@@ -139,20 +139,20 @@ public class JDFacultades extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     conexion basedatos = new conexion();
-     Connection conn;
-     basedatos.conectar();
-     try
-     {
-         conn = basedatos.getConexion();
-         Statement comando = conn.createStatement();
-         comando.executeUpdate("insert into facultades() values(null,'"+t_nom.getText()+"')");
-         JOptionPane.showMessageDialog(this, "Registro AGREGADO correctamente");
-         conn.close();
-     }
-     catch(Exception e)
-     {
-         JOptionPane.showMessageDialog(this, "Erro 100: "+ e);
+    // conexion basedatos = new conexion();
+     //Connection conn;
+     //basedatos.conectar();
+   //  try
+     //{
+       //  conn = basedatos.getConexion();
+        //Statement comando = conn.createStatement();
+         //comando.executeUpdate("insert into facultades() values(null,'"+t_nom.getText()+"')");
+         //JOptionPane.showMessageDialog(this, "Registro AGREGADO correctamente");
+         //conn.close();
+     //}
+     //catch(Exception e)
+     //{
+       //  JOptionPane.showMessageDialog(this, "Erro 100: "+ e);
 
      }
 
@@ -165,78 +165,78 @@ public class JDFacultades extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-conexion basedatos = new conexion();
-     Connection conn;
-     basedatos.conectar();
-     try
-     {
-         conn = basedatos.getConexion();
-         Statement comando = conn.createStatement();
-         comando.executeUpdate("Update facultades set Facultades='"+t_nom.getText()+"' where id_fac ='"+t_id.getText()+"'");
-         JOptionPane.showMessageDialog(this, "Registro ACTUALIZADO correctamente");
-         conn.close();
-     }
-     catch(Exception e)
-     {
+    //conexion basedatos = new conexion();
+     //Connection conn;
+     //basedatos.conectar();
+     //try
+     //{
+       //  conn = basedatos.getConexion();
+         //Statement comando = conn.createStatement();
+         //comando.executeUpdate("Update facultades set Facultades='"+t_nom.getText()+"' where id_fac ='"+t_id.getText()+"'");
+         //JOptionPane.showMessageDialog(this, "Registro ACTUALIZADO correctamente");
+         //conn.close();
+     //}
+     //catch(Exception e)
+     //{
          JOptionPane.showMessageDialog(this, "Erro 400: "+ e);
-     }
+     //}
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-conexion basedatos = new conexion();
-        basedatos.conectar();
-        Connection con;
-        con = basedatos.getConexion();
-        ResultSet consulta;
+//conexion basedatos = new conexion();
+        //basedatos.conectar();
+        //Connection con;
+        //con = basedatos.getConexion();
+        //ResultSet consulta;
        
-        try
-        {
-         Statement comando  = con.createStatement();      
-        consulta = comando.executeQuery("select id_fac,nom_fac from facultades where  id_fac = '"+t_id.getText()+"'");
-         if(consulta.next())
+        //try
+        //{
+         //Statement comando  = con.createStatement();      
+        //consulta = comando.executeQuery("select id_fac,nom_fac from facultades where  id_fac = '"+t_id.getText()+"'");
+         //if(consulta.next())
 	{
-	t_nom.setText(consulta.getString("nom_fac"));
+	//t_nom.setText(consulta.getString("nom_fac"));
 	//t_nom.setText(consulta.getString("nom_cli"));
        
         
 	}
-         else
-             JOptionPane.showMessageDialog(this, "REGISTRO no existente");
-      con.close();
-        }
-        catch(Exception e)
-        {
-            JOptionPane.showMessageDialog(this, "ERROR 300"+e);
-        }    
+         ////else
+             //JOptionPane.showMessageDialog(this, "REGISTRO no existente");
+    //  con.close();
+  //      }
+        //catch(Exception e)
+        //{
+            //JOptionPane.showMessageDialog(this, "ERROR 300"+e);
+        //}    
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-conexion basedatos = new conexion();
-     Connection conn;
-     basedatos.conectar();
-     try
-     {
-         conn = basedatos.getConexion();
-         Statement comando = conn.createStatement();
-         comando.executeUpdate("delete from facultades where id_fac ='"+t_id.getText()+"'");
-         JOptionPane.showMessageDialog(this, "Registro ELIMINADO correctamente");
-         t_nom.setText("");
+//conexion basedatos = new conexion();
+  //   Connection conn;
+    // basedatos.conectar();
+     //try
+     //{
+       //  conn = basedatos.getConexion();
+         //Statement comando = conn.createStatement();
+         //comando.executeUpdate("delete from facultades where id_fac ='"+t_id.getText()+"'");
+         //JOptionPane.showMessageDialog(this, "Registro ELIMINADO correctamente");
+         //t_nom.setText("");
     
-         conn.close();
-     }
-     catch(Exception e)
-     {
-         JOptionPane.showMessageDialog(this, "Erro 400: "+ e);
-     }        // TODO add your handling code here:Conexion basedatos = new Conexion();
+         //conn.close();
+     //}
+     //catch(Exception e)
+     //{
+       //  JOptionPane.showMessageDialog(this, "Erro 400: "+ e);
+     //}        // TODO add your handling code here:Conexion basedatos = new Conexion();
      
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    //public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -261,14 +261,14 @@ conexion basedatos = new conexion();
         //</editor-fold>
 
         /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JDFacultades dialog = new JDFacultades(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
+      //  java.awt.EventQueue.invokeLater(new Runnable() {
+        //    public void run() {
+          //      JDFacultades dialog = new JDFacultades(new javax.swing.JFrame(), true);
+            //    dialog.addWindowListener(new java.awt.event.WindowAdapter() {
+              //      @Override
+                //    public void windowClosing(java.awt.event.WindowEvent e) {
+                 //       System.exit(0);
+                   // }
                 });
                 dialog.setVisible(true);
             }

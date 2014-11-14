@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author prix
  */
-public class JDadmon_carreras extends javax.swing.JDialog {
+public class JDcarrera extends javax.swing.JDialog {
         initComponents();
         this.jComboBoxIdfacultad.removeAllItems();
         try
@@ -36,7 +36,7 @@ public class JDadmon_carreras extends javax.swing.JDialog {
     /**
      * Creates new form JDadmon_carreras
      */
-    public JDadmon_carreras(java.awt.Frame parent, boolean modal) {
+    public JDcarrera(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
          conexion basedatos = new conexion();
@@ -305,20 +305,21 @@ conexion basedatos = new conexion();
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JDadmon_carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDcarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JDadmon_carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDcarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JDadmon_carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDcarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JDadmon_carreras.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(JDcarrera.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                JDadmon_carreras dialog = new JDadmon_carreras(new javax.swing.JFrame(), true);
+                JDcarrera dialog = new JDcarrera(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
